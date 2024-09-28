@@ -114,15 +114,16 @@ const StyledSubmitButton = styled(Button)`
 `;
 
 const StyledCheckbox = styled(Checkbox)`
-  width: 24px;
-  height: 24px;
+  font-family: Gothic A1;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
 
-  > span {
-    font-family: Gothic A1;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 20px;
-    color: #000000;
+  .ant-checkbox-inner {
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+    border: 1.5px solid #cfcfcf;
   }
 `;
 
@@ -134,16 +135,11 @@ function OpinionGather() {
         description='유해·위험요인 등을 포함해 안전보건에 관한
 의견을 자유롭게 작성합니다.'
       />
-      <ContentsHeader
-        title={'신고자 정보'}
-        HeaderRight={
-          <StyledCheckbox>
-            <span>익명</span>
-          </StyledCheckbox>
-        }
-      />
+
+      <ContentsHeader title={'신고자 정보'} HeaderRight={<StyledCheckbox>익명</StyledCheckbox>} />
+
       <Form>
-        <Flex gap={24} vertical>
+        <Flex vertical>
           <LabelWrapper title={'현장'}>
             <StyledInput disabled value={'축열조 현장'} />
           </LabelWrapper>
@@ -157,7 +153,9 @@ function OpinionGather() {
           </LabelWrapper>
         </Flex>
 
-        <Flex gap={24} vertical>
+        <ContentsHeader title={'신고 내용'} />
+
+        <Flex vertical>
           <LabelWrapper title={'수신처'} hasDot>
             <StyledSelect
               placeholder={'선택해 주세요'}
