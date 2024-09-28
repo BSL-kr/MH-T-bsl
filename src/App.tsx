@@ -1,7 +1,3 @@
-
-
-function App() {
-
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 import RiskAssessmentPage from './pages/riskAssessmentAdequacy';

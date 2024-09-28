@@ -4,9 +4,9 @@ import styled from 'styled-components';
 
 const RiskAssessmentFormHeaderEle = styled(Row)`
   background: #f4f4f4;
-  height: 52px;
 
   padding: 10px 10px 10px 19px;
+  height: 52px;
 `;
 
 const RiskAssessmentFormHeader = (props: { title: string; HeaderRight: ReactNode | null }) => {

@@ -14,12 +14,17 @@ const RiskAssessmentFormEle = styled.div`
   }
 `;
 
-const RiskAssessmentForm = (props: { title: string; HeaderRight?: ReactNode | null }) => {
-  const { title, HeaderRight } = props;
+const RiskAssessmentForm = (props: {
+  title: string;
+  HeaderRight?: ReactNode | null;
+  isEdit: boolean;
+}) => {
+  const { title, HeaderRight, isEdit } = props;
 
   return (
     <RiskAssessmentFormEle>
       <RiskAssessmentFormHeader title={title} HeaderRight={HeaderRight} />
+      <RiskAssessmentFormBody isEdit={isEdit} />
       <RiskAssessmentFormBody />
     </RiskAssessmentFormEle>
   );
