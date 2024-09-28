@@ -8,6 +8,7 @@ const RiskAssessmentFormEle = styled.div`
   border-top-right-radius: 8px;
   border: 1px solid #cfcfcf;
   overflow: hidden;
+  margin-bottom: 24px;
 
   & > div:not(:last-child) {
     border-bottom: 1px solid #cfcfcf;
@@ -25,7 +26,7 @@ const RiskAssessmentForm = (props: {
     <RiskAssessmentFormEle>
       <RiskAssessmentFormHeader title={title} HeaderRight={HeaderRight} />
       <RiskAssessmentFormBody isEdit={isEdit} />
-      <RiskAssessmentFormBody />
+      <RiskAssessmentFormBody isEdit={isEdit} />
     </RiskAssessmentFormEle>
   );
 };

@@ -1,4 +1,5 @@
 import { Button } from 'antd';
+import { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const StyledSubmitButton = styled(Button)`
@@ -17,9 +18,9 @@ const StyledSubmitButton = styled(Button)`
   }
 `;
 
-const CustomButton = (props: { disable: boolean; text: string }) => {
-  const { disable, text } = props;
-  return <StyledSubmitButton disabled={disable}>{text}</StyledSubmitButton>;
+const CustomButton = (props: { disable: boolean; children: string | ReactNode }) => {
+  const { disable, children } = props;
+  return <StyledSubmitButton disabled={disable}>{children}</StyledSubmitButton>;
 };
 
 export default CustomButton;
