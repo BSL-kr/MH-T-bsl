@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-const PageHeaderEle = styled.header`
-  margin-bottom: 13px;
-
+const PageHeaderEle = styled.header<{ isUseDescription: boolean }>`
+  margin-bottom: ${props => (props.isUseDescription ? '13px' : '36px')};
   & > h2 {
     font-size: 20px;
     line-height: 25px;
+    text-align: left;
   }
 
   & > p {
@@ -14,13 +14,13 @@ const PageHeaderEle = styled.header`
   }
 `;
 
-const PageHeader = (props: { title: string; description: string }) => {
+const PageHeader = (props: { title: string; description?: string }) => {
   const { title, description } = props;
 
   return (
-    <PageHeaderEle>
+    <PageHeaderEle isUseDescription={Boolean(description)}>
       <h2 className='gothic-a1-extrabold'>{title}</h2>
-      <p className='gothic-a1-medium'>{description}</p>
+      {description && <p className='gothic-a1-medium'>{description}</p>}
     </PageHeaderEle>
   );
 };
