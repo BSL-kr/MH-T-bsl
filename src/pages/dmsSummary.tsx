@@ -23,6 +23,12 @@ const StyledSubmitButton = styled(Button)`
 
 const StyledButtonWrapper = styled(Flex)`
   overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 function DmsSummary() {
