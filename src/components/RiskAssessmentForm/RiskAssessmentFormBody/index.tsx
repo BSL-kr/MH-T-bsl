@@ -6,8 +6,12 @@ import ArrowDropDownIcon from '../../../assets/arrowDropDownIcon';
 import CalrendarIcon from '../../../assets/calrendarIcon';
 import { Fragment } from 'react/jsx-runtime';
 
-const StyledRow = styled(Row)<{ isEdit?: boolean }>`
+const StyledRowLarge = styled(Row)<{ isEdit?: boolean }>`
   min-height: ${props => (props.isEdit ? '76px' : '58px')};
+`;
+
+const StyledRowSmall = styled(Row)<{ isEdit?: boolean }>`
+  min-height: ${props => (props.isEdit ? '56px' : '44px')};
 `;
 
 const CustomCol = styled(Col)<{ isEdit?: boolean }>`
@@ -50,7 +54,7 @@ const ColText = styled.div`
 `;
 
 const StyledAntdTextArea = styled(TextArea)`
-  resize: none !important;
+  resize: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -150,7 +154,7 @@ const RiskAssessmentFormBody = (props: { isEdit?: boolean }) => {
           </div>
         </Col>
       </Row>
-      <StyledRow isEdit={isEdit}>
+      <StyledRowLarge isEdit={isEdit}>
         <CustomCol span={6}>
           <ColText className='gothic-a1-semibold'>
             <ColTitleText text='위험요인' usePoint={isEdit} />
@@ -169,8 +173,8 @@ const RiskAssessmentFormBody = (props: { isEdit?: boolean }) => {
             </ColText>
           )}
         </CustomCol>
-      </StyledRow>
-      <StyledRow isEdit={isEdit}>
+      </StyledRowLarge>
+      <StyledRowSmall isEdit={isEdit}>
         <CustomCol span={6}>
           <ColText className='gothic-a1-semibold'>
             <ColTitleText text='빈도' usePoint={isEdit} />
@@ -195,8 +199,8 @@ const RiskAssessmentFormBody = (props: { isEdit?: boolean }) => {
             <ColText className='gothic-a1-medium'>2</ColText>
           )}
         </CustomCol>
-      </StyledRow>
-      <StyledRow isEdit={isEdit}>
+      </StyledRowSmall>
+      <StyledRowSmall isEdit={isEdit}>
         <CustomCol span={6}>
           <ColText className='gothic-a1-semibold'>
             <ColTitleText text='위험등급' usePoint={isEdit} />
@@ -210,9 +214,13 @@ const RiskAssessmentFormBody = (props: { isEdit?: boolean }) => {
             <ColTitleText text='피해형태' usePoint={isEdit} />
           </ColText>
         </CustomCol>
-        <CustomCol span={6}>
+        <CustomCol span={6} isEdit={isEdit}>
           {isEdit ? (
             <Select
+              style={{
+                height: '44px',
+                width: '100%'
+              }}
               defaultValue='깔림'
               className='gothic-a1-medium'
               options={[]}
@@ -222,8 +230,8 @@ const RiskAssessmentFormBody = (props: { isEdit?: boolean }) => {
             <ColText className='gothic-a1-medium'>깔림</ColText>
           )}
         </CustomCol>
-      </StyledRow>
-      <StyledRow isEdit={isEdit}>
+      </StyledRowSmall>
+      <StyledRowLarge isEdit={isEdit}>
         <CustomCol span={6}>
           <ColText className='gothic-a1-semibold'>
             <ColTitleText text='감소대책' usePoint={isEdit} />
@@ -242,8 +250,8 @@ const RiskAssessmentFormBody = (props: { isEdit?: boolean }) => {
             </ColText>
           )}
         </CustomCol>
-      </StyledRow>
-      <StyledRow isEdit={isEdit}>
+      </StyledRowLarge>
+      <StyledRowLarge isEdit={isEdit}>
         <CustomCol span={6}>
           <ColText className='gothic-a1-semibold'>
             <ColTitleText text='개선조치 담당자' usePoint={isEdit} />
@@ -261,8 +269,8 @@ const RiskAssessmentFormBody = (props: { isEdit?: boolean }) => {
             <ColText className='gothic-a1-medium'>서형중</ColText>
           )}
         </CustomCol>
-      </StyledRow>
-      <StyledRow isEdit={isEdit}>
+      </StyledRowLarge>
+      <StyledRowLarge isEdit={isEdit}>
         <CustomCol span={6}>
           <ColText className='gothic-a1-semibold'>
             <ColTitleText text='조치 예정일' usePoint={isEdit} />
@@ -279,7 +287,7 @@ const RiskAssessmentFormBody = (props: { isEdit?: boolean }) => {
             <ColText className='gothic-a1-medium'>24.02.13 </ColText>
           )}
         </CustomCol>
-      </StyledRow>
+      </StyledRowLarge>
     </>
   );
 };
